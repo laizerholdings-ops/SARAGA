@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saranga Consulting & Projects | Construction, Building & Maintenance Solutions</title>
+    <meta name="description" content="Saranga Consulting & Projects provides professional construction, building and maintenance solutions in Johannesburg, Gauteng. Quality workmanship and reliable service.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0F1E36',
+                            dark: '#070F1C',
+                            light: '#1E293B',
+                            900: '#070F1C',
+                            800: '#0F1E36'
+                        },
+                        orange: {
+                            DEFAULT: '#FF6B00',
+                            dark: '#E05D00',
+                            light: '#FF8A33',
+                            600: '#E05D00',
+                            500: '#FF6B00'
+                        },
+                        charcoal: {
+                            800: '#1E232A',
+                            900: '#12161A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- LocalBusiness Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Saranga Consulting & Projects",
+      "image": "https://images.unsplash.com/photo-1541888946425-d0fbb18f06f5?auto=format&fit=crop&w=1200&q=80",
+      "url": "https://www.saranga.co.za",
+      "telephone": "+27822821588",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "59 East Road, Morningside",
+        "addressLocality": "Johannesburg",
+        "addressRegion": "Gauteng",
+        "postalCode": "2196",
+        "addressCountry": "ZA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -26.1070,
+        "longitude": 28.0560
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "12"
+      }
+    }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes kenburns {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+        .animate-kenburns {
+            animation: kenburns 10s infinite alternate ease-in-out;
+        }
+        body.day-mode {
+            background-color: #f1f5f9 !important;
+            color: #0f172a !important;
+        }
+        body.day-mode .theme-bg-white {
+            background-color: #ffffff !important;
+        }
+        body.day-mode .theme-text-heading {
+            color: #0f172a !important;
+        }
+        body.day-mode .theme-text-body {
+            color: #334155 !important;
+        }
+        body.day-mode .theme-card-bg {
+            background-color: #f8fafc !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-orange selection:text-white transition-colors duration-300">
+
+    <!-- Sticky Navigation Bar (Top Bar Removed per instructions) -->
+    <header class="sticky top-0 z-50 bg-navy/95 backdrop-blur-md shadow-lg border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand / Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 bg-orange rounded-lg flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-hard-hat text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-white font-extrabold text-sm sm:text-base tracking-tight block">SARANGA</span>
+                        <span class="text-orange text-xs tracking-widest uppercase block font-semibold">Consulting & Projects</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+                    <a href="#home" class="text-white hover:text-orange transition-colors">Home</a>
+                    <a href="#about" class="text-slate-300 hover:text-orange transition-colors">About Us</a>
+                    <a href="#services" class="text-slate-300 hover:text-orange transition-colors">Services</a>
+                    <a href="#approach" class="text-slate-300 hover:text-orange transition-colors">Our Approach</a>
+                    <a href="#projects" class="text-slate-300 hover:text-orange transition-colors">Portfolio</a>
+                    <a href="#contact" class="text-slate-300 hover:text-orange transition-colors">Contact</a>
+                </nav>
+
+                <!-- CTA Button & Theme Toggle -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <button id="theme-toggle" onclick="toggleTheme()" class="w-10 h-10 rounded-lg bg-slate-800 text-orange flex items-center justify-center hover:bg-slate-700 transition-colors shadow-inner" aria-label="Toggle Theme">
+                        <i id="theme-icon" class="fa-solid fa-moon text-lg"></i>
+                    </button>
+                    <a href="#quote" class="bg-orange hover:bg-orange-dark text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-orange/30 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 text-sm">
+                        GET A FREE QUOTE
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="lg:hidden text-slate-300 hover:text-white p-2 focus:outline-none" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-navy-dark border-t border-slate-800 px-4 pt-4 pb-6 space-y-3">
+            <a href="#home" class="block text-white font-medium py-2 px-3 rounded hover:bg-slate-800 transition-colors mobile-link">Home</a>
+            <a href="#about" class="block text-slate-300 font-medium py-2 px-3 rounded hover:bg-slate-800 transition-colors mobile-link">About Us</a>
+            <a href="#services" class="block text-slate-300 font-medium py-2 px-3 rounded hover:bg-slate-800 transition-colors mobile-link">Services</a>
+            <a href="#approach" class="block text-slate-300 font-medium py-2 px-3 rounded hover:bg-slate-800 transition-colors mobile-link">Our Approach</a>
+            <a href="#projects" class="block text-slate-300 font-medium py-2 px-3 rounded hover:bg-slate-800 transition-colors mobile-link">Portfolio</a>
+            <a href="#contact" class="block text-slate-300 font-medium py-2 px-3 rounded hover:bg-slate-800 transition-colors mobile-link">Contact</a>
+            <div class="pt-2 flex items-center justify-between">
+                <button onclick="toggleTheme()" class="flex items-center gap-2 text-slate-300 text-sm font-medium py-2 px-3 rounded bg-slate-800">
+                    <i id="mobile-theme-icon" class="fa-solid fa-moon text-orange"></i> Toggle Theme
+                </button>
+                <a href="#quote" class="bg-orange hover:bg-orange-dark text-white font-semibold px-5 py-2.5 rounded-lg shadow-md mobile-link text-sm">
+                    GET A FREE QUOTE
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Cinematic Video Background & Sliding Images -->
+    <section id="home" class="relative h-screen min-h-[650px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Slide 0: Construction Video -->
+            <div class="absolute inset-0 bg-hero-slide opacity-100 transition-opacity duration-1000" id="slide-0">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover scale-105">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-bricklayers-working-on-a-construction-site-41584-large.mp4" type="video/mp4">
+                </video>
+            </div>
+            <!-- Slide 1: Modern South African Building Developments -->
+            <div class="absolute inset-0 bg-hero-slide opacity-0 transition-opacity duration-1000" id="slide-1">
+                <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18f06f5?auto=format&fit=crop&w=1920&q=80" alt="Modern South African Building Developments" class="w-full h-full object-cover animate-kenburns">
+            </div>
+            <!-- Slide 2: Construction Workers on Active Building Sites -->
+            <div class="absolute inset-0 bg-hero-slide opacity-0 transition-opacity duration-1000" id="slide-2">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80" alt="Construction Workers on Active Building Sites" class="w-full h-full object-cover animate-kenburns">
+            </div>
+            <!-- Slide 3: Professional Builders Working on Residential Properties -->
+            <div class="absolute inset-0 bg-hero-slide opacity-0 transition-opacity duration-1000" id="slide-3">
+                <img src="https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=1920&q=80" alt="Professional Builders Working on Residential Properties" class="w-full h-full object-cover animate-kenburns">
+            </div>
+            <!-- Slide 4: Modern Architectural Structures -->
+            <div class="absolute inset-0 bg-hero-slide opacity-0 transition-opacity duration-1000" id="slide-4">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" alt="Modern Architectural Structures" class="w-full h-full object-cover animate-kenburns">
+            </div>
+            <!-- Slide 5: Building Renovations and Property Improvements -->
+            <div class="absolute inset-0 bg-hero-slide opacity-0 transition-opacity duration-1000" id="slide-5">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1920&q=80" alt="Building Renovations and Property Improvements" class="w-full h-full object-cover animate-kenburns">
+            </div>
+
+            <!-- Dark Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-dark/95 via-navy/80 to-navy-dark/70"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white py-20">
+            <div class="inline-block bg-orange/20 border border-orange/40 text-orange-light text-xs sm:text-sm font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm animate-bounce">
+                Premier South African Construction & Project Solutions
+            </div>
+            
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                BUILDING YOUR VISION.<br><span class="text-orange">DELIVERING EXCELLENCE.</span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-base sm:text-xl text-slate-300 mb-8 leading-relaxed font-light">
+                Saranga Consulting & Projects provides professional construction, building and maintenance solutions designed to bring your vision to life. We are committed to quality workmanship, reliable service and delivering results that stand the test of time.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+                <a href="#quote" class="w-full sm:w-auto bg-orange hover:bg-orange-dark text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-orange/40 transition-all duration-300 transform hover:-translate-y-1 text-center flex items-center justify-center gap-3">
+                    Request a Free Quote <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#services" class="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-700 text-white font-bold px-8 py-4 rounded-xl border border-slate-600 backdrop-blur-sm transition-all duration-300 text-center flex items-center justify-center gap-3">
+                    Explore Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Stats Bar -->
+    <section class="bg-orange py-8 text-white relative z-20 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="border-r border-orange-dark/40 last:border-0">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1">5.0 / 5</div>
+                    <div class="text-orange-100 text-xs sm:text-sm font-medium">Client Satisfaction</div>
+                </div>
+                <div class="border-r border-orange-dark/40 last:border-0">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1">100%</div>
+                    <div class="text-orange-100 text-xs sm:text-sm font-medium">Quality Workmanship</div>
+                </div>
+                <div class="border-r border-orange-dark/40 last:border-0">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1">Johannesburg</div>
+                    <div class="text-orange-100 text-xs sm:text-sm font-medium">Gauteng, South Africa</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1">Free</div>
+                    <div class="text-orange-100 text-xs sm:text-sm font-medium">Consultations & Quotes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white theme-bg-white transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Sliding Image Carousel Column -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white h-[450px] bg-slate-200">
+                        <!-- About Slide 1 -->
+                        <div class="absolute inset-0 about-slide opacity-100 transition-opacity duration-1000">
+                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80" alt="Construction team working on a building project" class="w-full h-full object-cover">
+                        </div>
+                        <!-- About Slide 2 -->
+                        <div class="absolute inset-0 about-slide opacity-0 transition-opacity duration-1000">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18f06f5?auto=format&fit=crop&w=1000&q=80" alt="Modern South African building development" class="w-full h-full object-cover">
+                        </div>
+                        <!-- About Slide 3 -->
+                        <div class="absolute inset-0 about-slide opacity-0 transition-opacity duration-1000">
+                            <img src="https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=1000&q=80" alt="Residential construction project" class="w-full h-full object-cover">
+                        </div>
+                        <!-- About Slide 4 -->
+                        <div class="absolute inset-0 about-slide opacity-0 transition-opacity duration-1000">
+                            <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1000&q=80" alt="Building maintenance and improvements" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <!-- Absolute Badge -->
+                    <div class="absolute -bottom-6 -right-6 bg-navy text-white p-6 rounded-2xl shadow-xl hidden sm:block border-l-4 border-orange">
+                        <div class="text-2xl font-black text-orange mb-1">Morningside</div>
+                        <div class="text-xs text-slate-300">Johannesburg Headquarters</div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="inline-block bg-orange/10 text-orange font-semibold text-xs uppercase tracking-wider px-3 py-1 rounded-md mb-4">
+                        Who We Are
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy theme-text-heading mb-6 tracking-tight">
+                        Committed to Professional Building & Construction Solutions
+                    </h2>
+                    <p class="text-slate-600 theme-text-body text-base sm:text-lg mb-6 leading-relaxed">
+                        <strong>Saranga Consulting & Projects</strong> is a construction and project solutions company committed to providing professional building, construction and maintenance services.
+                    </p>
+                    <p class="text-slate-600 theme-text-body text-base mb-6 leading-relaxed">
+                        We focus on delivering practical solutions, quality workmanship and reliable service to our clients. From construction-related projects to property improvements, fittings and maintenance, our objective is to ensure every project receives professional attention.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center space-x-3 bg-slate-50 theme-card-bg p-3 rounded-lg border border-slate-200">
+                            <i class="fa-solid fa-circle-check text-orange"></i>
+                            <span class="font-medium text-sm">Quality Workmanship</span>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-slate-50 theme-card-bg p-3 rounded-lg border border-slate-200">
+                            <i class="fa-solid fa-circle-check text-orange"></i>
+                            <span class="font-medium text-sm">Professional Service Delivery</span>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-slate-50 theme-card-bg p-3 rounded-lg border border-slate-200">
+                            <i class="fa-solid fa-circle-check text-orange"></i>
+                            <span class="font-medium text-sm">Customer Satisfaction</span>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-slate-50 theme-card-bg p-3 rounded-lg border border-slate-200">
+                            <i class="fa-solid fa-circle-check text-orange"></i>
+                            <span class="font-medium text-sm">Reliable Project Execution</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#quote" class="bg-navy hover:bg-navy-light text-white font-semibold px-6 py-3 rounded-lg transition-colors shadow-md">
+                            Request Consultation
+                        </a>
+                        <a href="tel:+27822821588" class="border-2 border-slate-300 hover:border-orange text-navy theme-text-heading font-semibold px-6 py-3 rounded-lg transition-colors flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-orange"></i> +27 82 282 1588
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services Section -->
+    <section id="services" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="bg-orange/10 text-orange font-semibold text-xs uppercase tracking-wider px-3 py-1 rounded-md mb-3 inline-block">Our Core Offerings</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight mb-4">Professional Construction & Maintenance Services</h2>
+                <p class="text-slate-600 text-base sm:text-lg">We deliver dependable, top-tier solutions tailored to residential, commercial, and general property needs.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group border border-slate-200">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.pexels.com/photos/12314551/pexels-photo-12314551.jpeg" alt="Construction Works" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-white font-bold text-lg">01. Construction Works</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-navy">Construction Works</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Professional construction solutions for residential and commercial building projects, with an emphasis on quality, durability and proper workmanship.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="#quote" onclick="setService('Construction Works')" class="w-full bg-slate-100 hover:bg-orange hover:text-white text-navy font-semibold py-3 rounded-xl transition-all text-center block text-sm">
+                            Request Quote <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group border border-slate-200">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.pexels.com/photos/4567378/pexels-photo-4567378.jpeg" alt="Building Maintenance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-white font-bold text-lg">02. Building Maintenance</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-navy">Building Maintenance</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                General building maintenance and property improvement solutions to keep buildings functional, safe and presentable at all times.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="#quote" onclick="setService('Building Maintenance')" class="w-full bg-slate-100 hover:bg-orange hover:text-white text-navy font-semibold py-3 rounded-xl transition-all text-center block text-sm">
+                            Request Quote <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group border border-slate-200">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.pexels.com/photos/6180735/pexels-photo-6180735.jpeg" alt="Wall Unit Fittings" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-white font-bold text-lg">03. Wall Unit Fittings</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-navy">Wall Unit Fittings</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Professional wall unit fitting and installation services, helping clients improve their interior spaces with practical and attractive fittings.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="#quote" onclick="setService('Wall Unit Fittings')" class="w-full bg-slate-100 hover:bg-orange hover:text-white text-navy font-semibold py-3 rounded-xl transition-all text-center block text-sm">
+                            Request Quote <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group border border-slate-200">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.pexels.com/photos/5691507/pexels-photo-5691507.jpeg" alt="Interior Improvements" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-white font-bold text-lg">04. Interior Improvements</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-navy">Interior Improvements</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Property interior improvements, installations and finishing solutions designed to enhance the appearance and functionality of spaces.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="#quote" onclick="setService('Interior Improvements')" class="w-full bg-slate-100 hover:bg-orange hover:text-white text-navy font-semibold py-3 rounded-xl transition-all text-center block text-sm">
+                            Request Quote <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group border border-slate-200">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Renovations and Refurbishments" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-white font-bold text-lg">05. Renovations</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-navy">Renovations & Refurbishments</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Building improvement and renovation solutions to refresh existing properties and improve their overall condition.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="#quote" onclick="setService('Renovations and Refurbishments')" class="w-full bg-slate-100 hover:bg-orange hover:text-white text-navy font-semibold py-3 rounded-xl transition-all text-center block text-sm">
+                            Request Quote <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group border border-slate-200">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="General Property Solutions" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-white font-bold text-lg">06. Property Solutions</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-navy">General Property & Project Solutions</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Practical construction and maintenance support for clients looking for reliable assistance with their property projects.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="#quote" onclick="setService('General Property and Project Solutions')" class="w-full bg-slate-100 hover:bg-orange hover:text-white text-navy font-semibold py-3 rounded-xl transition-all text-center block text-sm">
+                            Request Quote <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-20 bg-cover bg-center relative text-white" style="background-image: url('https://images.unsplash.com/photo-1541971875076-8f970d573be6?auto=format&fit=crop&w=1920&q=80');">
+        <div class="absolute inset-0 bg-navy/90"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-orange font-bold text-sm tracking-widest uppercase bg-orange/20 px-4 py-1.5 rounded-full inline-block mb-3 border border-orange/30">Our Core Values</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Why Choose Saranga Consulting & Projects?</h2>
+                <p class="text-gray-300">We set high standards in construction and project delivery to ensure complete client peace of mind.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-navy-light/80 p-8 rounded-2xl border border-slate-800 hover:border-orange transition duration-300">
+                    <div class="w-14 h-14 bg-orange text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Professional Approach</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        We handle every assignment with structured management, punctuality, and industry-leading professional standards.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-navy-light/80 p-8 rounded-2xl border border-slate-800 hover:border-orange transition duration-300">
+                    <div class="w-14 h-14 bg-orange text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Quality Workmanship</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Rigorous attention to building codes and superior craft ensures lasting durability across all finishes and structures.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-navy-light/80 p-8 rounded-2xl border border-slate-800 hover:border-orange transition duration-300">
+                    <div class="w-14 h-14 bg-orange text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Reliable Service</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Consistent communication, trustworthy on-site teams, and timely completion keep your project on schedule.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-navy-light/80 p-8 rounded-2xl border border-slate-800 hover:border-orange transition duration-300">
+                    <div class="w-14 h-14 bg-orange text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Attention to Detail</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        From structural integrity to fine interior finishes, no detail is overlooked in fulfilling your specifications.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-navy-light/80 p-8 rounded-2xl border border-slate-800 hover:border-orange transition duration-300">
+                    <div class="w-14 h-14 bg-orange text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Client-Focused Solutions</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Tailored construction and maintenance strategies created specifically around your budget, timeline, and goals.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-navy-light/80 p-8 rounded-2xl border border-slate-800 hover:border-orange transition duration-300">
+                    <div class="w-14 h-14 bg-orange text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Commitment to Excellence</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Driven by a passion for building excellence, ensuring every client feels secure and satisfied with the final result.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Working Process Section -->
+    <section id="approach" class="py-20 bg-navy text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="bg-orange/20 text-orange font-semibold text-xs uppercase tracking-wider px-3 py-1 rounded-md mb-3 inline-block border border-orange/30">Process</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Our Working Process</h2>
+                <p class="text-slate-300 text-base sm:text-lg">A clear, transparent, and structured 4-step journey from initial concept to project handover.</p>
+            </div>
+    <!-- Projects / Gallery Section with Moving Carousel -->
+    <section id="projects" class="py-20 bg-white theme-bg-white transition-colors duration-300 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="bg-orange/10 text-orange font-semibold text-xs uppercase tracking-wider px-3 py-1 rounded-md mb-3 inline-block">Project Portfolio</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy theme-text-heading tracking-tight mb-4">Our Works & Gallery</h2>
+                <p class="text-slate-600 theme-text-body text-base sm:text-lg">Representative views of our construction teams, residential projects, interior improvements, and maintenance solutions.</p>
+            </div>
+
+            <!-- Moving Carousel Container -->
+            <div class="relative">
+                <div id="project-carousel" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-6 pt-2 px-2 scroll-smooth" style="scrollbar-width: none; -ms-overflow-style: none;">
+                    
+                    <!-- Item 1 -->
+                    <div class="min-w-[300px] sm:min-w-[380px] snap-center flex-shrink-0 relative group overflow-hidden rounded-2xl shadow-xl h-80 bg-slate-900 border border-slate-200">
+                        <img src="https://images.pexels.com/photos/39494021/pexels-photo-39494021.jpeg" alt="Residential Construction" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-transparent flex flex-col justify-end p-6">
+                            <span class="text-orange text-xs font-bold uppercase tracking-wider mb-1">Residential</span>
+                            <h4 class="text-white text-xl font-bold">Residential Construction Project</h4>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="min-w-[300px] sm:min-w-[380px] snap-center flex-shrink-0 relative group overflow-hidden rounded-2xl shadow-xl h-80 bg-slate-900 border border-slate-200">
+                        <img src="https://images.pexels.com/photos/16140813/pexels-photo-16140813.jpeg" alt="Commercial Building" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-transparent flex flex-col justify-end p-6">
+                            <span class="text-orange text-xs font-bold uppercase tracking-wider mb-1">Commercial</span>
+                            <h4 class="text-white text-xl font-bold">Commercial Building Development</h4>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="min-w-[300px] sm:min-w-[380px] snap-center flex-shrink-0 relative group overflow-hidden rounded-2xl shadow-xl h-80 bg-slate-900 border border-slate-200">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Interior Improvements" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-transparent flex flex-col justify-end p-6">
+                            <span class="text-orange text-xs font-bold uppercase tracking-wider mb-1">Interiors</span>
+                            <h4 class="text-white text-xl font-bold">Interior Improvements & Finishing</h4>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="min-w-[300px] sm:min-w-[380px] snap-center flex-shrink-0 relative group overflow-hidden rounded-2xl shadow-xl h-80 bg-slate-900 border border-slate-200">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Wall Unit Installations" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-transparent flex flex-col justify-end p-6">
+                            <span class="text-orange text-xs font-bold uppercase tracking-wider mb-1">Fittings</span>
+                            <h4 class="text-white text-xl font-bold">Wall Unit Installations</h4>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="min-w-[300px] sm:min-w-[380px] snap-center flex-shrink-0 relative group overflow-hidden rounded-2xl shadow-xl h-80 bg-slate-900 border border-slate-200">
+                        <img src="https://images.pexels.com/photos/6197122/pexels-photo-6197122.jpeg" alt="Building Maintenance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-transparent flex flex-col justify-end p-6">
+                            <span class="text-orange text-xs font-bold uppercase tracking-wider mb-1">Maintenance</span>
+                            <h4 class="text-white text-xl font-bold">General Building Maintenance</h4>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="min-w-[300px] sm:min-w-[380px] snap-center flex-shrink-0 relative group overflow-hidden rounded-2xl shadow-xl h-80 bg-slate-900 border border-slate-200">
+                        <img src="https://images.pexels.com/photos/33011845/pexels-photo-33011845.jpeg" alt="Construction Teams" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-transparent flex flex-col justify-end p-6">
+                            <span class="text-orange text-xs font-bold uppercase tracking-wider mb-1">Execution</span>
+                            <h4 class="text-white text-xl font-bold">Construction Teams at Work</h4>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Carousel Controls -->
+                <div class="flex justify-center items-center gap-4 mt-8">
+                    <button onclick="scrollCarousel(-1)" class="w-12 h-12 rounded-full bg-navy hover:bg-orange text-white flex items-center justify-center shadow-lg transition-colors" aria-label="Previous Project">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button onclick="scrollCarousel(1)" class="w-12 h-12 rounded-full bg-navy hover:bg-orange text-white flex items-center justify-center shadow-lg transition-colors" aria-label="Next Project">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request a Free Quotation & Contact Section -->
+    <section id="quote" class="py-20 bg-gradient-to-br from-navy via-navy-dark to-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5 flex flex-col justify-between">
+                    <div>
+                        <span class="bg-orange/20 text-orange font-semibold text-xs uppercase tracking-wider px-3 py-1 rounded-md mb-3 inline-block border border-orange/30">Enquiries</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">LET'S BUILD SOMETHING GREAT TOGETHER.</h2>
+                        <p class="text-slate-300 text-base mb-8 leading-relaxed">
+                            Have a construction, building or maintenance project in mind? Get in touch with Saranga Consulting & Projects today. We are ready to discuss your requirements and help you take the next step.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-orange text-white rounded-xl flex items-center justify-center text-xl shrink-0 shadow-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Physical Address</h4>
+                                <p class="text-slate-300 text-sm">59 East Road, Morningside, Johannesburg, Gauteng, 2196, South Africa.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-orange text-white rounded-xl flex items-center justify-center text-xl shrink-0 shadow-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Contact Number</h4>
+                                <a href="tel:+27822821588" class="text-orange hover:underline text-sm font-semibold">+27 82 282 1588</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-white text-slate-800 p-8 sm:p-10 rounded-3xl shadow-2xl">
+                    <h3 class="text-2xl font-bold text-navy mb-2">Project Quotation Form</h3>
+                    <p class="text-slate-500 text-sm mb-6">Complete your project details to send your enquiry instantly to our team.</p>
+
+                    <form id="quote-form" onsubmit="submitToWhatsApp(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Full Name *</label>
+                                <input type="text" id="fname" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange transition-colors" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Phone Number *</label>
+                                <input type="tel" id="fphone" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange transition-colors" placeholder="+27 82 123 4567">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Email Address *</label>
+                                <input type="email" id="femail" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange transition-colors" placeholder="john@example.com">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Type of Service Required *</label>
+                                <select id="fservice" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange transition-colors">
+                                    <option value="">Select Service</option>
+                                    <option value="Construction Works">Construction Works</option>
+                                    <option value="Building Maintenance">Building Maintenance</option>
+                                    <option value="Wall Unit Fittings">Wall Unit Fittings</option>
+                                    <option value="Interior Improvements">Interior Improvements</option>
+                                    <option value="Renovations and Refurbishments">Renovations and Refurbishments</option>
+                                    <option value="General Property and Project Solutions">General Property and Project Solutions</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Project Description *</label>
+                            <textarea id="fdetails" rows="4" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange transition-colors" placeholder="Tell us about your project requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-orange hover:bg-orange-dark text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-orange/30 transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            SUBMIT ENQUIRY VIA WHATSAPP
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps Section -->
+    <section id="contact" class="bg-slate-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-navy">Headquarters Location</h3>
+                <p class="text-slate-600 text-sm">59 East Road, Morningside, Johannesburg, Gauteng, 2196, South Africa</p>
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-xl h-[400px] border-4 border-white">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.463212170367!2d28.0560!3d-26.1070!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e957322810a9c67%3A0x6a246a16d8a370e5!2s59%20East%20Rd%2C%20Morningside%2C%20Sandton%2C%202196%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1650000000000!5m2!1sen!2sza" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-dark text-slate-400 py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-orange rounded-lg flex items-center justify-center text-white font-black text-lg">
+                            <i class="fa-solid fa-hard-hat text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-white font-extrabold text-sm tracking-tight block">SARANGA</span>
+                            <span class="text-orange text-xs tracking-widest uppercase block font-semibold">Consulting & Projects</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                        Saranga Consulting & Projects provides professional construction, building, and maintenance solutions tailored to bring your vision to life.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-base mb-4 border-l-2 border-orange pl-3">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="hover:text-orange transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-orange transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-orange transition-colors">Our Services</a></li>
+                        <li><a href="#why-us" class="hover:text-orange transition-colors">Why Choose Us</a></li>
+                        <li><a href="#approach" class="hover:text-orange transition-colors">Working Process</a></li>
+                        <li><a href="#projects" class="hover:text-orange transition-colors">Portfolio</a></li>
+                        <li><a href="#contact" class="hover:text-orange transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-base mb-4 border-l-2 border-orange pl-3">Our Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#services" class="hover:text-orange transition-colors">Construction Works</a></li>
+                        <li><a href="#services" class="hover:text-orange transition-colors">Building Maintenance</a></li>
+                        <li><a href="#services" class="hover:text-orange transition-colors">Wall Unit Fittings</a></li>
+                        <li><a href="#services" class="hover:text-orange transition-colors">Interior Improvements</a></li>
+                        <li><a href="#services" class="hover:text-orange transition-colors">Renovations & Refurbishments</a></li>
+                        <li><a href="#services" class="hover:text-orange transition-colors">General Property Solutions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-base mb-4 border-l-2 border-orange pl-3">Contact Information</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li>59 East Road, Morningside, Johannesburg, Gauteng, 2196, South Africa</li>
+                        <li>Phone: <a href="tel:+27822821588" class="text-orange hover:underline">+27 82 282 1588</a></li>
+                        <li>Email: <a href="mailto:info@saranga.co.za" class="text-orange hover:underline">info@saranga.co.za</a></li>
+                        <li>Website: www.saranga.co.za</li>
+                        <li>Facebook: Saranga Consulting & Projects</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+                <p>&copy; 2026 Saranga Consulting & Projects. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/27822821588?text=Good%20day%20Saranga%20Consulting%20%26%20Projects.%20I%20would%20like%20to%20enquire%20about%20your%20construction%20and%20maintenance%20services.%20Please%20assist%20me%20with%20more%20information." 
+       target="_blank" 
+       rel="noopener" 
+       aria-label="Chat on WhatsApp"
+       class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-all duration-300 animate-bounce">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Hero Background Slideshow Animation Script
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.bg-hero-slide');
+        
+        function rotateHeroSlides() {
+            if (slides.length > 0) {
+                slides[currentSlide].classList.remove('opacity-100');
+                slides[currentSlide].classList.add('opacity-0');
+                
+                currentSlide = (currentSlide + 1) % slides.length;
+                
+                slides[currentSlide].classList.remove('opacity-0');
+                slides[currentSlide].classList.add('opacity-100');
+            }
+        }
+        setInterval(rotateHeroSlides, 5500);
+
+        // About Us Sliding Images Carousel Script
+        let currentAboutSlide = 0;
+        const aboutSlides = document.querySelectorAll('.about-slide');
+
+        function rotateAboutSlides() {
+            if (aboutSlides.length > 0) {
+                aboutSlides[currentAboutSlide].classList.remove('opacity-100');
+                aboutSlides[currentAboutSlide].classList.add('opacity-0');
+
+                currentAboutSlide = (currentAboutSlide + 1) % aboutSlides.length;
+
+                aboutSlides[currentAboutSlide].classList.remove('opacity-0');
+                aboutSlides[currentAboutSlide].classList.add('opacity-100');
+            }
+        }
+        setInterval(rotateAboutSlides, 4500);
+
+        // Interactive Moving Project Carousel Controls & Auto-scroll
+        const projectCarousel = document.getElementById('project-carousel');
+        function scrollCarousel(direction) {
+            const scrollAmount = 400;
+            if (projectCarousel) {
+                projectCarousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        // Auto-scroll moving gallery every 4 seconds
+        let autoScrollInterval = setInterval(() => {
+            if (projectCarousel) {
+                if (projectCarousel.scrollLeft + projectCarousel.clientWidth >= projectCarousel.scrollWidth - 10) {
+                    projectCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    projectCarousel.scrollBy({ left: 400, behavior: 'smooth' });
+                }
+            }
+        }, 4000);
+
+        // Pause auto-scroll on hover
+        if (projectCarousel) {
+            projectCarousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+            projectCarousel.addEventListener('mouseleave', () => {
+                autoScrollInterval = setInterval(() => {
+                    if (projectCarousel.scrollLeft + projectCarousel.clientWidth >= projectCarousel.scrollWidth - 10) {
+                        projectCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        projectCarousel.scrollBy({ left: 400, behavior: 'smooth' });
+                    }
+                }, 4000);
+            });
+        }
+
+        let isDarkMode = true;
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+
+            if (isDarkMode) {
+                body.classList.remove('day-mode');
+                if (themeIcon) themeIcon.className = "fa-solid fa-moon text-lg";
+                if (mobileThemeIcon) mobileThemeIcon.className = "fa-solid fa-moon text-orange";
+            } else {
+                body.classList.add('day-mode');
+                if (themeIcon) themeIcon.className = "fa-solid fa-sun text-lg text-amber-400";
+                if (mobileThemeIcon) mobileThemeIcon.className = "fa-solid fa-sun text-amber-400";
+            }
+        }
+
+        function setService(serviceName) {
+            const selectEl = document.getElementById('fservice');
+            if (selectEl) {
+                for (let i = 0; i < selectEl.options.length; i++) {
+                    if (selectEl.options[i].value === serviceName) {
+                        selectEl.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+
+        function submitToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('fname').value.trim();
+            const phone = document.getElementById('fphone').value.trim();
+            const email = document.getElementById('femail').value.trim();
+            const service = document.getElementById('fservice').value;
+            const details = document.getElementById('fdetails').value.trim();
+
+            const message = `*New Project Enquiry - Saranga Consulting & Projects*%0A%0A` +
+                            `*Full Name:* ${name}%0A` +
+                            `*Phone Number:* ${phone}%0A` +
+                            `*Email Address:* ${email}%0A` +
+                            `*Service Required:* ${service}%0A` +
+                            `*Project Description:* ${details}`;
+
+            const whatsappUrl = `https://wa.me/27822821588?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
